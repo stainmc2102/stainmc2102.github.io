@@ -8,23 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <style>
-    body, html {
+    body {
       margin: 0;
       padding: 0;
+      background-color: #000;
+      background-size: cover;
       font-family: "Segoe UI", sans-serif;
       color: white;
-      height: 100%;
-    }
-
-    /* Video nền */
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
     }
 
     .container {
@@ -33,7 +23,6 @@
       margin: auto;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
-      margin-top: 30px;
     }
 
     h2 {
@@ -82,13 +71,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Video nền -->
-  <video autoplay muted loop class="bg-video">
-    <source src="background.mp4" type="video/mp4">
-    Trình duyệt của bạn không hỗ trợ video nền.
-  </video>
-
   <div class="container">
     <section id="portfolio" class="tab-content active">
       <h2>📌 Thông tin cá nhân</h2>
@@ -99,19 +81,12 @@
 
       <h2>🎮 Kỹ năng chơi game</h2>
       <div class="skills">
-        <span>RTS</span>
-        <span>FPS</span>
-        <span>Teamwork</span>
-        <span>Low Tier 5 CPvP</span>
+        <span>RTS</span><span>FPS</span><span>Teamwork</span><span>Low Tier 5 CPvP</span>
       </div>
 
       <h2>💼 Kỹ năng lập trình</h2>
       <div class="skills">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>Python</span>
-        <span>Pygame</span>
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Pygame</span>
       </div>
     </section>
 
@@ -145,6 +120,7 @@
     </section>
   </div>
 
+  <!-- Script -->
   <script>
     function showTab(evt, tabId) {
       evt.preventDefault();
