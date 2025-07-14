@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> StainMC</title>
+  <title>StainMC</title>
   <meta name="google-site-verification" content="0p1YokjcBtk_MSE0iy74Ra4YXqMjtfcCxSwi7m4vOh8" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <style>
-    body {
+    body, html {
       margin: 0;
       padding: 0;
-      background: url("background.mp4") no-repeat center center fixed;
-      background-size: cover;
-      background-color: #000;
       font-family: "Segoe UI", sans-serif;
       color: white;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    video.bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
     }
 
     .container {
@@ -24,6 +33,24 @@
       margin: auto;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
+      margin-top: 50px;
+    }
+
+    nav.menu {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav.menu a {
+      color: #00ffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: normal;
+    }
+
+    nav.menu a.active {
+      font-weight: bold;
+      border-bottom: 2px solid #00ffff;
     }
 
     h2 {
@@ -49,17 +76,8 @@
       margin: 10px 0;
     }
 
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
     a:hover {
       text-decoration: underline;
-    }
-
-    nav.menu a.active {
-      font-weight: bold;
     }
 
     .tab-content {
@@ -72,6 +90,22 @@
   </style>
 </head>
 <body>
+
+  <!-- Background video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="background.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video nền.
+  </video>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="#" class="active" onclick="showTab(event, 'portfolio')">Thông tin</a>
+    <a href="#" onclick="showTab(event, 'socials')">Socials</a>
+    <a href="#" onclick="showTab(event, 'donate')">Donate</a>
+    <a href="#" onclick="showTab(event, 'services')">Shop</a>
+  </nav>
+
+  <!-- Nội dung chính -->
   <div class="container">
     <section id="portfolio" class="tab-content active">
       <h2>📌 Thông tin cá nhân</h2>
@@ -121,7 +155,7 @@
     </section>
   </div>
 
-  <!-- Script -->
+  <!-- Script điều khiển tab -->
   <script>
     function showTab(evt, tabId) {
       evt.preventDefault();
@@ -132,4 +166,4 @@
     }
   </script>
 </body>
-  </html>
+</html>
