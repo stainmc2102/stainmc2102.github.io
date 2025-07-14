@@ -8,12 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background-color: #000;
       font-family: "Segoe UI", sans-serif;
       color: white;
+      overflow-x: hidden;
     }
 
     /* Video nền toàn màn hình */
@@ -21,8 +26,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       z-index: -1;
     }
@@ -33,6 +38,8 @@
       margin: auto;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
+      position: relative;
+      z-index: 1;
     }
 
     h2 {
@@ -83,7 +90,7 @@
 <body>
 
   <!-- Video nền -->
-  <video autoplay muted loop class="bg-video">
+  <video autoplay muted loop playsinline class="bg-video">
     <source src="background.mp4" type="video/mp4" />
     Trình duyệt của bạn không hỗ trợ video nền.
   </video>
