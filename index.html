@@ -12,9 +12,19 @@
       margin: 0;
       padding: 0;
       background-color: #000;
-      background-size: cover;
       font-family: "Segoe UI", sans-serif;
       color: white;
+    }
+
+    /* Video nền toàn màn hình */
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
     .container {
@@ -71,6 +81,13 @@
   </style>
 </head>
 <body>
+
+  <!-- Video nền -->
+  <video autoplay muted loop class="bg-video">
+    <source src="background.mp4" type="video/mp4" />
+    Trình duyệt của bạn không hỗ trợ video nền.
+  </video>
+
   <div class="container">
     <section id="portfolio" class="tab-content active">
       <h2>📌 Thông tin cá nhân</h2>
