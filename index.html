@@ -21,6 +21,7 @@
       overflow-x: hidden;
     }
 
+    /* Video nền */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -31,18 +32,33 @@
       z-index: -1;
     }
 
+    /* Logo / Avatar */
+    .logo {
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #00ffff;
+      object-fit: cover;
+    }
+
     nav.menu {
       text-align: center;
       margin: 20px 0;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     nav.menu a {
       color: #00ffff;
       margin: 0 10px;
       text-decoration: none;
-      font-weight: normal;
     }
 
     nav.menu a:hover {
@@ -112,7 +128,12 @@
     Trình duyệt của bạn không hỗ trợ video nền.
   </video>
 
-  <!-- Menu điều hướng -->
+  <!-- Avatar / Logo -->
+  <div class="logo">
+    <img src="avatar.png" alt="StainMC Avatar">
+  </div>
+
+  <!-- Menu -->
   <nav class="menu">
     <a href="#" class="active" onclick="showTab(event, 'portfolio')">Giới thiệu</a> |
     <a href="#" onclick="showTab(event, 'socials')">Socials</a> |
@@ -182,3 +203,4 @@
   </script>
 </body>
 </html>
+
