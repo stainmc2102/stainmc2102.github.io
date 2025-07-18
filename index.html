@@ -15,12 +15,14 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
       font-family: "Segoe UI", sans-serif;
       color: white;
       overflow-x: hidden;
+      background: #000 url('fallback.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
 
+    /* Video nền */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -29,6 +31,7 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
+      pointer-events: none;
     }
 
     .logo {
@@ -117,7 +120,6 @@
       display: block;
     }
 
-    /* Highlight Discord Section */
     #discord ul li {
       background-color: rgba(0, 255, 255, 0.1);
       padding: 10px;
@@ -128,15 +130,18 @@
 </head>
 <body>
 
+  <!-- ✅ Video nền có autoplay, muted, playsinline (bắt buộc) -->
   <video autoplay muted loop playsinline class="bg-video">
     <source src="background.mp4" type="video/mp4" />
-    Trình duyệt của bạn không hỗ trợ video nền.
+    <!-- fallback nếu video không chạy -->
   </video>
 
+  <!-- Avatar -->
   <div class="logo">
     <img src="avatar.png" alt="StainMC Avatar">
   </div>
 
+  <!-- Menu -->
   <nav class="menu">
     <a href="#" class="active" onclick="showTab(event, 'portfolio')">Giới thiệu</a> |
     <a href="#" onclick="showTab(event, 'socials')">Socials</a> |
@@ -145,6 +150,7 @@
     <a href="#" onclick="showTab(event, 'discord')">Discord</a> |
   </nav>
 
+  <!-- Nội dung -->
   <div class="container">
     <section id="portfolio" class="tab-content active">
       <h2>📌 Thông tin cá nhân</h2>
@@ -198,6 +204,7 @@
       <ul>
         <li><strong>Link mời:</strong> <a href="https://dsc.gg/hoiquanstain" target="_blank">Hội Quán Stain</a></li>
         <li><strong>Mô tả:</strong> Tham gia máy chủ Discord để có trải nghiệm vui vẻ, giao lưu, chơi game và cập nhật thông tin!</li>
+        <li><strong>Thành viên:</strong> 500+ người tham gia</li>
         <li><strong>Sự kiện:</strong> Giveaways, minigames mỗi tuần</li>
       </ul>
     </section>
@@ -214,4 +221,4 @@
   </script>
 
 </body>
-</html>
+        </html>
