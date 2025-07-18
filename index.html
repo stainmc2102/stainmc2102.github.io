@@ -21,7 +21,6 @@
       overflow-x: hidden;
     }
 
-    /* Video nền */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -32,7 +31,6 @@
       z-index: -1;
     }
 
-    /* Logo / Avatar */
     .logo {
       text-align: center;
       margin-top: 20px;
@@ -118,30 +116,35 @@
     .tab-content.active {
       display: block;
     }
+
+    /* Highlight Discord Section */
+    #discord ul li {
+      background-color: rgba(0, 255, 255, 0.1);
+      padding: 10px;
+      border-left: 4px solid #00ffff;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Video nền -->
   <video autoplay muted loop playsinline class="bg-video">
     <source src="background.mp4" type="video/mp4" />
     Trình duyệt của bạn không hỗ trợ video nền.
   </video>
 
-  <!-- Avatar / Logo -->
   <div class="logo">
     <img src="avatar.png" alt="StainMC Avatar">
   </div>
 
-  <!-- Menu -->
   <nav class="menu">
     <a href="#" class="active" onclick="showTab(event, 'portfolio')">Giới thiệu</a> |
     <a href="#" onclick="showTab(event, 'socials')">Socials</a> |
     <a href="#" onclick="showTab(event, 'donate')">Donate</a> |
-    <a href="#" onclick="showTab(event, 'services')">Shop</a>
+    <a href="#" onclick="showTab(event, 'services')">Shop</a> |
+    <a href="#" onclick="showTab(event, 'discord')">Discord</a> |
   </nav>
 
-  <!-- Nội dung -->
   <div class="container">
     <section id="portfolio" class="tab-content active">
       <h2>📌 Thông tin cá nhân</h2>
@@ -189,9 +192,17 @@
         <li><a href="https://thesieutoc.net/register/554914646ad0af00e6d5f7ed" target="_blank">Thesieutoc – Nạp thẻ</a></li>
       </ul>
     </section>
+
+    <section id="discord" class="tab-content">
+      <h2><i class="fab fa-discord"></i> Discord</h2>
+      <ul>
+        <li><strong>Link mời:</strong> <a href="https://dsc.gg/hoiquanstain" target="_blank">Hội Quán Stain</a></li>
+        <li><strong>Mô tả:</strong> Tham gia máy chủ Discord để có trải nghiệm vui vẻ, giao lưu, chơi game và cập nhật thông tin!</li>
+        <li><strong>Sự kiện:</strong> Giveaways, minigames mỗi tuần</li>
+      </ul>
+    </section>
   </div>
 
-  <!-- Script -->
   <script>
     function showTab(evt, tabId) {
       evt.preventDefault();
@@ -201,6 +212,6 @@
       evt.currentTarget.classList.add('active');
     }
   </script>
+
 </body>
 </html>
-
