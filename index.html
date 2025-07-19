@@ -22,15 +22,17 @@
       background-size: cover;
     }
 
-    /* Video nền */
+    /* ✅ Video nền */
     video.bg-video {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
+      background: url('fallback.jpg') no-repeat center center;
+      background-size: cover;
       pointer-events: none;
     }
 
@@ -130,13 +132,13 @@
 </head>
 <body>
 
-  <!-- ✅ Video nền có autoplay, muted, playsinline (bắt buộc) -->
-  <video autoplay muted loop playsinline class="bg-video">
+  <!-- ✅ Video nền đã fix -->
+  <video autoplay muted loop playsinline class="bg-video" id="bg-video">
     <source src="background.mp4" type="video/mp4" />
-    <!-- fallback nếu video không chạy -->
+    Trình duyệt không hỗ trợ phát video nền.
   </video>
 
-  <!-- Avatar -->
+  <!-- Logo -->
   <div class="logo">
     <img src="avatar.png" alt="StainMC Avatar">
   </div>
@@ -202,13 +204,15 @@
     <section id="discord" class="tab-content">
       <h2><i class="fab fa-discord"></i> Discord</h2>
       <ul>
-        <li><strong>Discord:</strong> <a href="https://dsc.gg/hoiquanstain" target="_blank">Hội Quán Stain</a></li>
+        <li><strong>Link mời:</strong> <a href="https://dsc.gg/hoiquanstain" target="_blank">Hội Quán Stain</a></li>
         <li><strong>Mô tả:</strong> Tham gia máy chủ Discord để có trải nghiệm vui vẻ, giao lưu, chơi game và cập nhật thông tin!</li>
+        <li><strong>Thành viên:</strong> 500+ người tham gia</li>
         <li><strong>Sự kiện:</strong> Giveaways, minigames mỗi tuần</li>
       </ul>
     </section>
   </div>
 
+  <!-- ✅ Script chuyển tab + đảm bảo video play -->
   <script>
     function showTab(evt, tabId) {
       evt.preventDefault();
@@ -217,7 +221,18 @@
       document.getElementById(tabId).classList.add('active');
       evt.currentTarget.classList.add('active');
     }
+
+    // ✅ Đảm bảo video play khi load (tránh phải reload)
+    window.addEventListener('load', () => {
+      const video = document.getElementById('bg-video');
+      if (video) {
+        video.play().catch(err => {
+          console.warn("Tự động phát bị chặn, thử lại sau...", err);
+          setTimeout(() => video.play(), 500);
+        });
+      }
+    });
   </script>
 
 </body>
-        </html>
+  </html>
