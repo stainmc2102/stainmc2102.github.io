@@ -1,238 +1,124 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StainMC</title>
-  <meta name="google-site-verification" content="0p1YokjcBtk_MSE0iy74Ra4YXqMjtfcCxSwi7m4vOh8" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
-      color: white;
-      overflow-x: hidden;
-      background: #000 url('fallback.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    /* ✅ Video nền */
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      background: url('fallback.jpg') no-repeat center center;
-      background-size: cover;
-      pointer-events: none;
-    }
-
-    .logo {
-      text-align: center;
-      margin-top: 20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .logo img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #00ffff;
-      object-fit: cover;
-    }
-
-    nav.menu {
-      text-align: center;
-      margin: 20px 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    nav.menu a {
-      color: #00ffff;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    nav.menu a:hover {
-      text-decoration: underline;
-    }
-
-    nav.menu a.active {
-      font-weight: bold;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    h2 {
-      margin-top: 30px;
-      font-size: 24px;
-    }
-
-    .skills span {
-      display: inline-block;
-      background-color: #444;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      margin: 5px 5px 0 0;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin: 10px 0;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    #discord ul li {
-      background-color: rgba(0, 255, 255, 0.1);
-      padding: 10px;
-      border-left: 4px solid #00ffff;
-      border-radius: 5px;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StainMC — Intro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+        .intro {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 9999;
+            pointer-events: none;
+            background: transparent;
+        }
+        
+        .intro .logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 2px solid rgba(0, 255, 168, 0.12);
+            box-shadow: 0 10px 40px rgba(0, 255, 168, 0.04);
+        }
+        
+        .intro h1 {
+            margin: 6px 0 0;
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 800;
+            color: #00ffa8;
+            font-size: 1.6rem;
+            letter-spacing: .06em;
+            text-shadow: 0 0 18px rgba(0, 255, 168, .12);
+        }
+        
+        .intro .type {
+            margin-top: 6px;
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 600;
+            color: #9fb3c8;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #00ffa8;
+            padding-right: 6px;
+        }
+        
+        .skip {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 9999;
+            pointer-events: auto;
+            background: #00ffa8;
+            color: #001212;
+            font-weight: 800;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 14px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(0, 255, 168, .08);
+        }
+    </style>
 </head>
+
 <body>
+    <div id="matrix-wrap"><canvas id="matrix"></canvas></div>
+    <div class="bg-overlay" aria-hidden="true"></div>
 
-  <!-- ✅ Video nền đã fix -->
-  <video autoplay muted loop playsinline class="bg-video" id="bg-video">
-    <source src="background.mp4" type="video/mp4" />
-    Trình duyệt không hỗ trợ phát video nền.
-  </video>
+    <div class="intro" id="intro">
+        <img src="assets/avatar.png" alt="avatar" class="logo" />
+        <h1>Welcome to StainMC</h1>
+        <div class="type" id="intro-type" aria-live="polite"></div>
+    </div>
 
-  <!-- Logo -->
-  <div class="logo">
-    <img src="avatar.png" alt="StainMC Avatar">
-  </div>
+    <button class="skip" id="skipBtn" aria-label="Skip intro">Enter</button>
 
-  <!-- Menu -->
-  <nav class="menu">
-    <a href="#" class="active" onclick="showTab(event, 'portfolio')">Giới thiệu</a> |
-    <a href="#" onclick="showTab(event, 'socials')">Socials</a> |
-    <a href="#" onclick="showTab(event, 'donate')">Donate</a> |
-    <a href="#" onclick="showTab(event, 'services')">Shop</a> |
-    <a href="#" onclick="showTab(event, 'discord')">Discord</a> 
-  </nav>
+    <script src="assets/script.js"></script>
+    <script>
+        const lines = ["Hello, world.", "I'm Stain.", "Developer.", "I build bots & tools."];
+        const el = document.getElementById('intro-type');
+        let w = 0,
+            i = 0,
+            del = false;
 
-  <!-- Nội dung -->
-  <div class="container">
-    <section id="portfolio" class="tab-content active">
-      <h2>📌 Thông tin cá nhân</h2>
-      <p><strong>Họ tên:</strong> Đàm Nguyễn Sinh Thành</p>
-      <p><strong>Biệt danh:</strong> Stain</p>
-      <p><strong>Nghề nghiệp:</strong> None</p>
-      <p><strong>Tuổi:</strong> 1x</p>
+        function tick() {
+            const current = lines[w];
+            if (!del) {
+                i++;
+                el.textContent = current.slice(0, i);
+                if (i === current.length) {
+                    del = true;
+                    setTimeout(tick, 900);
+                    return;
+                }
+            } else {
+                i--;
+                el.textContent = current.slice(0, i);
+                if (i === 0) {
+                    del = false;
+                    w = (w + 1) % lines.length;
+                }
+            }
+            setTimeout(tick, del ? 50 : 120);
+        }
+        tick();
 
-      <h2>🎮 Kỹ năng chơi game</h2>
-      <div class="skills">
-        <span>RTS</span><span>FPS</span><span>Teamwork</span><span>Low Tier 5 CPvP</span>
-      </div>
-
-      <h2>💼 Kỹ năng lập trình</h2>
-      <div class="skills">
-        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Pygame</span>
-      </div>
-    </section>
-
-    <section id="socials" class="tab-content">
-      <h2>🌐 Socials</h2>
-      <ul>
-        <li><a href="https://facebook.com/damnguyensinhthanh" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-        <li><a href="https://instagram.com/stainmc2102" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-        <li><a href="https://discord.gg/stainmc2102" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
-        <li><a href="https://youtube.com/@stainmc2102" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-        <li><a href="https://tiktok.com/@stainmc2102" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-        <li><a href="mailto:thanhdzd02@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a></li>
-      </ul>
-    </section>
-
-    <section id="donate" class="tab-content">
-      <h2>💰 Donate</h2>
-      <p>Ủng hộ tui gói mì đi mò :3</p>
-      <ul>
-        <li><a href="https://thesieutoc.net" target="_blank">Thesieutoc (Username: thanhdzdz)</a></li>
-        <li><a href="https://playerduo.net/672af62002a26426e90215d2" target="_blank">PlayerDuo</a></li>
-      </ul>
-    </section>
-
-    <section id="services" class="tab-content">
-      <h2>🛒 Shop</h2>
-      <ul>
-        <li><a href="https://shyun.shop/?aff=79449" target="_blank">Shyun Shop – Client & Exploit Roblox</a></li>
-        <li><a href="https://thesieutoc.net/register/554914646ad0af00e6d5f7ed" target="_blank">Thesieutoc – Nạp thẻ</a></li>
-      </ul>
-    </section>
-
-    <section id="discord" class="tab-content">
-      <h2><i class="fab fa-discord"></i> Discord</h2>
-      <ul>
-        <li><strong>Link mời:</strong> <a href="https://dsc.gg/hoiquanstain" target="_blank">Hội Quán Stain</a></li>
-        <li><strong>Mô tả:</strong> Tham gia máy chủ Discord để có trải nghiệm vui vẻ, giao lưu, chơi game và cập nhật thông tin!</li>
-        <li><strong>Thành viên:</strong> 500+ người tham gia</li>
-        <li><strong>Sự kiện:</strong> Giveaways, minigames mỗi tuần</li>
-      </ul>
-    </section>
-  </div>
-
-  <!-- ✅ Script chuyển tab + đảm bảo video play -->
-  <script>
-    function showTab(evt, tabId) {
-      evt.preventDefault();
-      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('nav.menu a').forEach(a => a.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
-
-    // ✅ Đảm bảo video play khi load (tránh phải reload)
-    window.addEventListener('load', () => {
-      const video = document.getElementById('bg-video');
-      if (video) {
-        video.play().catch(err => {
-          console.warn("Tự động phát bị chặn, thử lại sau...", err);
-          setTimeout(() => video.play(), 500);
-        });
-      }
-    });
-  </script>
-
+        function go() {
+            location.href = "home.html";
+        }
+        document.getElementById('skipBtn').addEventListener('click', go);
+        setTimeout(go, 4800);
+    </script>
 </body>
-  </html>
+
+</html>
