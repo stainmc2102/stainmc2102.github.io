@@ -118,8 +118,11 @@
         tick();
 
         function go() {
-            location.href = "home.html";
-        }
+    const path = location.pathname.split("/").pop();
+    const target = path && path !== "index.html" ? path : "home.html";
+    location.href = target;
+}
+
         document.getElementById('skipBtn').addEventListener('click', go);
         setTimeout(go, 4800);
     </script>
