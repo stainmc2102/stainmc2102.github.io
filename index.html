@@ -1,416 +1,560 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Sukidesu Arata | Developer Coder & Minecraft Specialist</title>
-        <meta name="description" content="Sukidesu Arata - Developer Coder & Minecraft Specialist">
-        <link rel="icon" href="./assets/weblogo.webp" type="image/webp">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <div class="top-left-controls">
-            <button id="ui-toggle" class="control-btn" data-vi-title="Ẩn/Hiện Giao diện" data-en-title="Toggle UI Visibility" title="Ẩn/Hiện Giao diện">
-                <i class="fas fa-eye"></i>
-            </button>
-        </div>
-        <div class="top-right-controls">
-            <button id="theme-toggle" class="control-btn" data-vi-title="Chuyển đổi Giao diện" data-en-title="Toggle Theme" title="Chuyển đổi Giao diện">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button id="lang-toggle" class="control-btn" data-vi-title="Chuyển đổi Ngôn ngữ" data-en-title="Toggle Language" title="Chuyển đổi Ngôn ngữ">
-                <span class="lang-text">VI</span>
-            </button>
-        </div>
-        <div class="bg-fx"></div>
-        <div class="app-container">
-            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <aside class="sidebar-wrapper">
-                <div class="profile-card glass-card fade-up">
-                    <div class="avatar-container">
-                        <div class="avatar-glow"></div>
-                        <img src="./assets/avatar.gif" alt="Sukidesu Arata Avatar" class="avatar" onerror='this.src="https://ui-avatars.com/api/?name=Sukidesu+Arata&background=0D1117&color=10B981&size=256"'>
-                        <div class="status-badge" data-vi="<span class='status-dot'></span> Sẵn sàng" data-en="<span class='status-dot'></span> Available">
-                            <span class="status-dot"></span>
-                            Sẵn sàng
-                        </div>
-                    </div>
-                    <h1 class="name">Sukidesu Arata</h1>
-                    <h2 class="role" data-vi="Developer Coder & Minecraft Specialist" data-en="Developer Coder & Minecraft Specialist">Developer Coder & Minecraft Specialist</h2>
-                    <p class="bio" data-vi="Nam | Việt Nam<br><br>Mình là Sukidesu Arata. Với kiến thức vững chắc về HTML, JS, Java và Python, mình chuyên xây dựng các hệ thống Discord Bot đa năng và thiết lập, vận hành server Minecraft chuyên sâu." data-en="Male | Vietnam<br><br>I am Sukidesu Arata. With solid knowledge of HTML, JS, Java, and Python, I specialize in building versatile Discord Bot systems and setting up, operating in-depth Minecraft servers.">
-                        Nam | Việt Nam<br>
-                        <br>Mình là Sukidesu Arata. Với kiến thức vững chắc về HTML, JS, Java và Python, mình chuyên xây dựng các hệ thống Discord Bot đa năng và thiết lập, vận hành server Minecraft chuyên sâu.
-                    </p>
-                    <div class="discord-widget fade-up delay-1">
-                        <div class="discord-avatar-container">
-                            <img src="https://ui-avatars.com/api/?name=Loading&background=0D1117&color=10B981" id="lanyard-avatar" class="discord-avatar" alt="Discord Avatar">
-                            <img id="lanyard-decoration" class="discord-decoration" src="" alt="Decoration">
-                            <div id="lanyard-status" class="discord-status-dot offline"></div>
-                            <div id="lanyard-status-bubble" class="discord-status-bubble"></div>
-                        </div>
-                        <div class="discord-info">
-                            <div class="discord-name-row">
-                                <span id="lanyard-username" class="discord-username" data-vi="Đang kết nối..." data-en="Connecting...">Đang kết nối...</span>
-                                <span id="lanyard-discriminator" class="discord-discriminator"></span>
-                                <div id="lanyard-badges" class="discord-badges-list"></div>
-                            </div>
-                            <div class="discord-activity">
-                                <div id="lanyard-activity" class="discord-act-main" data-vi="Vui lòng đợi" data-en="Please wait">Vui lòng đợi</div>
-                                <div id="lanyard-details" class="discord-act-detail">...</div>
-                            </div>
-                        </div>
-                        <img id="lanyard-act-icon" class="discord-act-icon" src="" alt="Activity Icon">
-                    </div>
-                    <nav class="nav-menu">
-                        <a href="#about" class="nav-link active" data-vi="<i class='fas fa-user-astronaut'></i> Về Tôi" data-en="<i class='fas fa-user-astronaut'></i> About Me">
-                            <i class="fas fa-user-astronaut"></i>
-                            Về Tôi
-                        </a>
-                        <a href="#services" class="nav-link" data-vi="<i class='fas fa-briefcase'></i> Chuyên Môn" data-en="<i class='fas fa-briefcase'></i> Expertise">
-                            <i class="fas fa-briefcase"></i>
-                            Chuyên Môn
-                        </a>
-                        <a href="#skills" class="nav-link" data-vi="<i class='fas fa-layer-group'></i> Kỹ Năng / Công Nghệ" data-en="<i class='fas fa-layer-group'></i> Skills / Tech">
-                            <i class="fas fa-layer-group"></i>
-                            Kỹ Năng / Công Nghệ
-                        </a>
-                        <a href="#experience" class="nav-link" data-vi="<i class='fas fa-project-diagram'></i> Dự Án Tham Gia" data-en="<i class='fas fa-project-diagram'></i> Projects">
-                            <i class="fas fa-project-diagram"></i>
-                            Dự Án Tham Gia
-                        </a>
-                    </nav>
-                    <div class="social-links">
-                        <a href="https://facebook.sukimc.me" target="_blank" class="social-btn">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://discord.sukimc.me" target="_blank" class="social-btn">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
-                </div>
-            </aside>
-            <main class="content-wrapper">
-                <section id="about" class="section fade-up delay-1">
-                    <div class="section-header">
-                        <span class="section-badge">01 // INIT</span>
-                        <h2 class="section-title" data-vi="Về Bản Thân" data-en="About Me">Về Bản Thân</h2>
-                    </div>
-                    <div class="glass-card panel-content">
-                        <p class="lead-text" data-vi="Mình là <strong>Sukidesu Arata</strong>, một Developer tinh thần nhiệt huyết đến từ Việt Nam." data-en="I'm <strong>Sukidesu Arata</strong>, a passionate Developer from Vietnam.">
-                            Mình là <strong>Sukidesu Arata</strong>
-                            , một Developer tinh thần nhiệt huyết đến từ Việt Nam.
-                        </p>
-                        <p class="sub-text" data-vi="Với nền tảng kỹ thuật vững chắc trên các ngôn ngữ HTML, JavaScript, Java và Python, mình đã có nhiều năm kinh nghiệm trong việc xây dựng các hệ thống Discord Bot đa năng, phát triển Website và đặc biệt là quản trị - lập trình chuyên sâu cho server Minecraft.<br><br>Mục tiêu của mình là luôn tạo ra những sản phẩm công nghệ tối ưu, sáng tạo và mang lại giá trị thực tế cao nhất cho người dùng và cộng đồng trò chơi." data-en="With a solid technical foundation in HTML, JavaScript, Java, and Python, I have years of experience building versatile Discord Bot systems, developing Websites, and especially specialized management - programming for Minecraft servers.<br><br>My goal is to always create optimized, creative technology products that bring the highest practical value to users and the gaming community.">
-                            Với nền tảng kỹ thuật vững chắc trên các ngôn ngữ HTML, JavaScript, Java và Python, mình đã có nhiều năm kinh nghiệm trong việc xây dựng các hệ thống Discord Bot đa năng, phát triển Website và đặc biệt là quản trị - lập trình chuyên sâu cho server Minecraft.<br>
-                            <br>Mục tiêu của mình là luôn tạo ra những sản phẩm công nghệ tối ưu, sáng tạo và mang lại giá trị thực tế cao nhất cho người dùng và cộng đồng trò chơi.
-                        </p>
-                    </div>
-                    <div class="glass-card code-panel mt-2 fade-up">
-                        <div class="code-header">
-                            <div class="window-controls">
-                                <span class="ctrl close"></span>
-                                <span class="ctrl min"></span>
-                                <span class="ctrl max"></span>
-                            </div>
-                            <span class="filename">info.yml</span>
-                        </div>
-                        <pre>
-                            <code>
-                                <span class="token key">entity:</span>
-                                Sukidesu Arata
-<span class="token key">location:</span>
-                                <span data-vi="Việt Nam" data-en="Vietnam">Việt Nam</span>
-                                <span class="token key">gender:</span>
-                                <span data-vi="Nam" data-en="Male">Nam</span>
-                                <span class="token key">core_focus:</span>
-                                <span class="token value">- Discord Bot Systems</span>
-                                <span class="token value">- Minecraft Operations</span>
-                                <span class="token value">- Web Development</span>
-                                <span class="token key">status:</span>
-                                <span class="token highlight">Ready for deployment_</span>
-                            </code>
-                        </pre>
-                    </div>
-                </section>
-                <section id="services" class="section">
-                    <div class="section-header fade-up">
-                        <span class="section-badge">02 // EXPERTISE</span>
-                        <h2 class="section-title" data-vi="Chuyên Môn" data-en="Expertise">Chuyên Môn</h2>
-                    </div>
-                    <div class="services-grid">
-                        <div class="service-card glass-card fade-up">
-                            <div class="service-icon">
-                                <i class="fab fa-discord"></i>
-                            </div>
-                            <h3>Discord Bot</h3>
-                            <p data-vi="Thiết kế và vận hành hệ thống bot quản lý đa năng, lập trình custom bot và tích hợp API chuyên sâu." data-en="Design and operate versatile management bot systems, program custom bots, and integrate in-depth APIs.">Thiết kế và vận hành hệ thống bot quản lý đa năng, lập trình custom bot và tích hợp API chuyên sâu.</p>
-                        </div>
-                        <div class="service-card glass-card fade-up delay-1">
-                            <div class="service-icon">
-                                <i class="fas fa-cubes"></i>
-                            </div>
-                            <h3>Minecraft Development</h3>
-                            <p data-vi="Phát triển hệ thống server, thiết kế logic trò chơi, cấu hình plugin và tối ưu hóa trải nghiệm người chơi." data-en="Develop server systems, design game logic, configure plugins, and optimize player experience.">Phát triển hệ thống server, thiết kế logic trò chơi, cấu hình plugin và tối ưu hóa trải nghiệm người chơi.</p>
-                        </div>
-                        <div class="service-card glass-card fade-up delay-2">
-                            <div class="service-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <h3>Web Development</h3>
-                            <p data-vi="Xây dựng giao diện UI/UX mượt mà, lập trình front-end và hệ thống quản lý web cơ bản." data-en="Build smooth UI/UX interfaces, program front-end, and basic web management systems.">Xây dựng giao diện UI/UX mượt mà, lập trình front-end và hệ thống quản lý web cơ bản.</p>
-                        </div>
-                        <div class="service-card glass-card fade-up delay-3">
-                            <div class="service-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <h3>Python Automation</h3>
-                            <p data-vi="Thiết lập tự động hóa luồng công việc, trích xuất dữ liệu và xây dựng các script xử lý tự động hiệu quả." data-en="Set up workflow automation, extract data, and build efficient automated processing scripts.">Thiết lập tự động hóa luồng công việc, trích xuất dữ liệu và xây dựng các script xử lý tự động hiệu quả.</p>
-                        </div>
-                    </div>
-                </section>
-                <section id="skills" class="section">
-                    <div class="section-header fade-up">
-                        <span class="section-badge">03 // CAPABILITIES</span>
-                        <h2 class="section-title" data-vi="Kỹ Năng / Công Nghệ" data-en="Skills / Technologies">Kỹ Năng / Công Nghệ</h2>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="glass-card skill-box fade-up">
-                            <h3 class="skill-box-title" data-vi="<i class='fas fa-toolbox'></i> Bộ Công Cụ" data-en="<i class='fas fa-toolbox'></i> Tech Stack">
-                                <i class="fas fa-toolbox"></i>
-                                Bộ Công Cụ
-                            </h3>
-                            <div class="tech-icons">
-                                <div class="tech-item">
-                                    <i class="fab fa-html5"></i>
-                                    <span>HTML</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-js"></i>
-                                    <span>JavaScript</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-java"></i>
-                                    <span>Java</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-python"></i>
-                                    <span>Python</span>
-                                </div>
-                                <div class="tech-item">
-                                    <i class="fab fa-css3-alt"></i>
-                                    <span>CSS</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="glass-card skill-box fade-up delay-1">
-                            <h3 class="skill-box-title" data-vi="<i class='fas fa-chart-bar'></i> Độ Thông Thạo" data-en="<i class='fas fa-chart-bar'></i> Masteries">
-                                <i class="fas fa-chart-bar"></i>
-                                Độ Thông Thạo
-                            </h3>
-                            <div class="skill-bar-item">
-                                <div class="skill-label">
-                                    <span data-vi="Quản trị Server Minecraft" data-en="Minecraft Server Administration">Quản trị Server Minecraft</span>
-                                    <span class="pct">95%</span>
-                                </div>
-                                <div class="skill-track">
-                                    <div class="skill-fill" data-progress="95"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-label">
-                                    <span data-vi="Logic & API Discord Bot" data-en="Discord Bot Logic & API">Logic & API Discord Bot</span>
-                                    <span class="pct">90%</span>
-                                </div>
-                                <div class="skill-track">
-                                    <div class="skill-fill" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-label">
-                                    <span data-vi="Phát triển Web" data-en="Web Development">Phát triển Web</span>
-                                    <span class="pct">80%</span>
-                                </div>
-                                <div class="skill-track">
-                                    <div class="skill-fill" data-progress="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-bar-item">
-                                <div class="skill-label">
-                                    <span data-vi="Script Python & Tự động hóa" data-en="Python Scripts & Automation">Script Python & Tự động hóa</span>
-                                    <span class="pct">85%</span>
-                                </div>
-                                <div class="skill-track">
-                                    <div class="skill-fill" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="experience" class="section">
-                    <div class="section-header fade-up">
-                        <span class="section-badge">04 // NETWORK</span>
-                        <div class="header-with-action">
-                            <h2 class="section-title" data-vi="Dự Án Tham Gia" data-en="Project Network">Dự Án Tham Gia</h2>
-                            <button id="reload-pings" class="reload-btn" data-vi-title="Làm mới trạng thái" data-en-title="Reload Status" title="Làm mới trạng thái">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-list">
-                        <div class="project-item glass-card hover-glow fade-up">
-                            <div class="project-main-flex">
-                                <img src="./assets/toromc.webp" alt="Toromc Network Logo" class="project-logo" onerror='this.src="https://ui-avatars.com/api/?name=Toromc+Network&background=0A101C&color=10B981&size=64"'>
-                                <div class="project-content">
-                                    <div class="project-title-row">
-                                        <h3 class="project-title">Toromc Network</h3>
-                                        <span class="role-badge">DEV</span>
-                                    </div>
-                                    <p class="project-desc mc-ping" data-ip="play.toromc.vn" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
-                                    <div class="ip-copy-container" onclick='copyIP("play.toromc.vn",this)'>
-                                        <span class="ip-text">play.toromc.vn</span>
-                                        <i class="fas fa-copy"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-item glass-card hover-glow fade-up delay-1">
-                            <div class="project-main-flex">
-                                <img src="./assets/VNSMP.png" alt="VNSMP Logo" class="project-logo" onerror='this.src="https://ui-avatars.com/api/?name=VNSMP&background=0A101C&color=10B981&size=64"'>
-                                <div class="project-content">
-                                    <div class="project-title-row">
-                                        <h3 class="project-title">VNSMP.com</h3>
-                                        <span class="role-badge">DEV</span>
-                                    </div>
-                                    <p class="project-desc mc-ping" data-ip="vnsmp.com" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
-                                    <div class="ip-copy-container" onclick='copyIP("vnsmp.com",this)'>
-                                        <span class="ip-text">vnsmp.com</span>
-                                        <i class="fas fa-copy"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-item glass-card hover-glow fade-up delay-2">
-                            <div class="project-main-flex">
-                                <img src="./assets/lunernetwork.webp" alt="Luner Network Logo" class="project-logo" onerror='this.src="https://ui-avatars.com/api/?name=Luner+Network&background=0A101C&color=10B981&size=64"'>
-                                <div class="project-content">
-                                    <div class="project-title-row">
-                                        <h3 class="project-title">Luner Network</h3>
-                                        <span class="role-badge">DEV</span>
-                                    </div>
-                                    <p class="project-desc mc-ping" data-ip="lunermc.online" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
-                                    <div class="ip-copy-container" onclick='copyIP("lunermc.online",this)'>
-                                        <span class="ip-text">lunermc.online</span>
-                                        <i class="fas fa-copy"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-item glass-card hover-glow fade-up delay-3">
-                            <div class="project-main-flex">
-                                <img src="./assets/nightcore.webp" alt="Nightcore Network Logo" class="project-logo" onerror='this.src="https://ui-avatars.com/api/?name=Nightcore&background=0A101C&color=10B981&size=64"'>
-                                <div class="project-content">
-                                    <div class="project-title-row">
-                                        <h3 class="project-title">Nightcore Network</h3>
-                                        <span class="role-badge">DEV</span>
-                                    </div>
-                                    <p class="project-desc mc-ping" data-ip="nightcoresmp.xyz" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
-                                    <div class="ip-copy-container" onclick='copyIP("nightcoresmp.xyz",this)'>
-                                        <span class="ip-text">nightcoresmp.xyz</span>
-                                        <i class="fas fa-copy"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-item glass-card hover-glow fade-up">
-                            <div class="project-main-flex">
-                                <img src="./assets/wynnmc.webp" alt="WynnMC Logo" class="project-logo" onerror='this.src="https://ui-avatars.com/api/?name=WynnMC&background=0A101C&color=10B981&size=64"'>
-                                <div class="project-content">
-                                    <div class="project-title-row">
-                                        <h3 class="project-title">WynnMC</h3>
-                                        <span class="role-badge warn">Admin</span>
-                                    </div>
-                                    <p class="project-desc mc-ping" data-ip="wynnmc.fun" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
-                                    <div class="ip-copy-container" onclick='copyIP("wynnmc.fun",this)'>
-                                        <span class="ip-text">wynnmc.fun</span>
-                                        <i class="fas fa-copy"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-item glass-card hover-glow fade-up delay-1">
-                            <div class="project-main-flex">
-                                <img src="./assets/minemumi.webp" alt="Minemumi Logo" class="project-logo" onerror='this.src="https://ui-avatars.com/api/?name=Minemumi&background=0A101C&color=10B981&size=64"'>
-                                <div class="project-content">
-                                    <div class="project-title-row">
-                                        <h3 class="project-title">Minemumi Community</h3>
-                                        <span class="role-badge alert">Leaker</span>
-                                    </div>
-                                    <p class="project-desc" data-vi="Cộng đồng Minecraft chia sẻ tài nguyên lớn mạnh" data-en="Thriving Minecraft community sharing resources">Cộng đồng Minecraft chia sẻ tài nguyên lớn mạnh</p>
-                                    <a href="https://minemumi.sukimc.me" target="_blank" class="ip-copy-container discord-link">
-                                        <span class="ip-text">minemumi.sukimc.me</span>
-                                        <i class="fab fa-discord"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <footer class="main-footer fade-up delay-2">
-                    <div class="footer-content glass-card">
-                        <div class="footer-brand">Sukidesu Arata // 2026</div>
-                        <div class="footer-msg" data-vi="Phát triển Minecraft/Discord." data-en="Minecraft/Discord Developer.">Phát triển Minecraft/Discord.</div>
-                    </div>
-                </footer>
-            </main>
-        </div>
-        <audio id="bg-music" loop autoplay>
-            <source src="./assets/Point The Star.mp3" type="audio/mpeg">
-        </audio>
-        <button id="music-toggle-btn" class="floating-music-btn" data-vi-title="Mở/Đóng Bảng Nhạc" data-en-title="Toggle Music Panel" title="Mở/Đóng Bảng Nhạc">
-            <i class="fas fa-music"></i>
-        </button>
-        <div class="music-content" id="music-content">
-            <div class="music-cover">
-                <i class="fas fa-compact-disc fa-spin"></i>
-            </div>
-            <div class="music-info">
-                <div class="music-title">Point The Star</div>
-                <div class="music-controls">
-                    <button id="music-play-pause" class="ctrl-btn">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <div class="volume-slider-container">
-                        <i class="fas fa-volume-up"></i>
-                        <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.3">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="floating-view-badge" data-vi-title="Lượt xem hồ sơ" data-en-title="Profile Views" title="Lượt xem hồ sơ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukidesu Arata | Developer Coder & Minecraft Specialist</title>
+    <meta name="description" content="Sukidesu Arata - Developer Coder & Minecraft Specialist">
+    <link rel="icon" href="./assets/weblogo.webp" type="image/webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Top Left Controls: UI Toggle -->
+    <div class="top-left-controls">
+        <button id="ui-toggle" class="control-btn" data-vi-title="Ẩn/Hiện Giao diện" data-en-title="Toggle UI Visibility" title="Ẩn/Hiện Giao diện">
             <i class="fas fa-eye"></i>
-            <span id="view-count">...</span>
+        </button>
+    </div>
+
+    <!-- Top Right Controls: Theme & Language -->
+    <div class="top-right-controls">
+        <button id="theme-toggle" class="control-btn" data-vi-title="Chuyển đổi Giao diện" data-en-title="Toggle Theme" title="Chuyển đổi Giao diện">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button id="lang-toggle" class="control-btn" data-vi-title="Chuyển đổi Ngôn ngữ" data-en-title="Toggle Language" title="Chuyển đổi Ngôn ngữ">
+            <span class="lang-text">VI</span>
+        </button>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-fx"></div>
+
+    <!-- Main Layout Container -->
+    <div class="app-container">
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Left Sidebar: Fixed Profile Panel -->
+        <aside class="sidebar-wrapper">
+            <div class="profile-card glass-card fade-up">
+                <div class="avatar-container">
+                    <div class="avatar-glow"></div>
+                    <!-- Using existing avatar from assets -->
+                    <img src="./assets/avatar.gif" alt="Sukidesu Arata Avatar" class="avatar"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Sukidesu+Arata&background=0D1117&color=10B981&size=256'">
+                    <div class="status-badge" data-vi="<span class='status-dot'></span> Sẵn sàng" data-en="<span class='status-dot'></span> Available">
+                        <span class="status-dot"></span> Sẵn sàng
+                    </div>
+                </div>
+
+                <h1 class="name">Sukidesu Arata</h1>
+                <h2 class="role" data-vi="Developer Coder & Minecraft Specialist" data-en="Developer Coder & Minecraft Specialist">Developer Coder & Minecraft Specialist</h2>
+                <p class="bio" data-vi="Nam | Việt Nam<br><br>Mình là Sukidesu Arata. Với kiến thức vững chắc về HTML, JS, Java và Python, mình chuyên xây dựng các hệ thống Discord Bot đa năng và thiết lập, vận hành server Minecraft chuyên sâu." data-en="Male | Vietnam<br><br>I am Sukidesu Arata. With solid knowledge of HTML, JS, Java, and Python, I specialize in building versatile Discord Bot systems and setting up, operating in-depth Minecraft servers.">
+                    Nam | Việt Nam<br><br>
+                    Mình là Sukidesu Arata. Với kiến thức vững chắc về HTML, JS, Java và Python, mình chuyên xây dựng
+                    các hệ thống Discord Bot đa năng và thiết lập, vận hành server Minecraft chuyên sâu.
+                </p>
+
+                <!-- Discord Lanyard Presence -->
+                <div class="discord-widget fade-up delay-1">
+                    <div class="discord-avatar-container">
+                        <img src="https://ui-avatars.com/api/?name=Loading&background=0D1117&color=10B981"
+                            id="lanyard-avatar" class="discord-avatar" alt="Discord Avatar">
+                        <img id="lanyard-decoration" class="discord-decoration" src="" alt="Decoration">
+                        <div id="lanyard-status" class="discord-status-dot offline"></div>
+                        <!-- Custom Status Bubble -->
+                        <div id="lanyard-status-bubble" class="discord-status-bubble"></div>
+                    </div>
+                    <div class="discord-info">
+                        <div class="discord-name-row">
+                            <span id="lanyard-username" class="discord-username" data-vi="Đang kết nối..." data-en="Connecting...">Đang kết nối...</span>
+                            <span id="lanyard-discriminator" class="discord-discriminator"></span>
+                            <div id="lanyard-badges" class="discord-badges-list"></div>
+                        </div>
+                        <div class="discord-activity">
+                            <div id="lanyard-activity" class="discord-act-main" data-vi="Vui lòng đợi" data-en="Please wait">Vui lòng đợi</div>
+                            <div id="lanyard-details" class="discord-act-detail">...</div>
+                        </div>
+                    </div>
+                    <img id="lanyard-act-icon" class="discord-act-icon" src="" alt="Activity Icon">
+                </div>
+
+                <nav class="nav-menu">
+                    <a href="#about" class="nav-link active" data-vi="<i class='fas fa-user-astronaut'></i> Về Tôi" data-en="<i class='fas fa-user-astronaut'></i> About Me"><i class="fas fa-user-astronaut"></i> Về Tôi</a>
+                    <a href="#services" class="nav-link" data-vi="<i class='fas fa-briefcase'></i> Chuyên Môn" data-en="<i class='fas fa-briefcase'></i> Expertise"><i class="fas fa-briefcase"></i> Chuyên Môn</a>
+                    <a href="#skills" class="nav-link" data-vi="<i class='fas fa-layer-group'></i> Kỹ Năng / Công Nghệ" data-en="<i class='fas fa-layer-group'></i> Skills / Tech"><i class="fas fa-layer-group"></i> Kỹ Năng / Công Nghệ</a>
+                    <a href="#experience" class="nav-link" data-vi="<i class='fas fa-project-diagram'></i> Dự Án Tham Gia" data-en="<i class='fas fa-project-diagram'></i> Projects"><i class="fas fa-project-diagram"></i> Dự Án Tham Gia</a>
+                    <a href="#featured-projects" class="nav-link" data-vi="<i class='fas fa-star'></i> Dự Án Nổi Bật" data-en="<i class='fas fa-star'></i> Featured Projects"><i class="fas fa-star"></i> Dự Án Nổi Bật</a>
+                </nav>
+
+                <div class="social-links">
+                    <a href="https://facebook.sukimc.me" target="_blank" class="social-btn"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://discord.sukimc.me" target="_blank" class="social-btn"><i
+                            class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Side: Scrollable Content Areas -->
+        <main class="content-wrapper">
+
+            <!-- About Section -->
+            <section id="about" class="section fade-up delay-1">
+                <div class="section-header">
+                    <span class="section-badge">01 // INIT</span>
+                    <h2 class="section-title" data-vi="Về Bản Thân" data-en="About Me">Về Bản Thân</h2>
+                </div>
+
+                <div class="glass-card panel-content">
+                    <p class="lead-text" data-vi="Mình là <strong>Sukidesu Arata</strong>, một Developer tinh thần nhiệt huyết đến từ Việt Nam." data-en="I'm <strong>Sukidesu Arata</strong>, a passionate Developer from Vietnam.">
+                        Mình là <strong>Sukidesu Arata</strong>, một Developer tinh thần nhiệt huyết đến từ Việt Nam.
+                    </p>
+                    <p class="sub-text" data-vi="Với nền tảng kỹ thuật vững chắc trên các ngôn ngữ HTML, JavaScript, Java và Python, mình đã có nhiều năm kinh nghiệm trong việc xây dựng các hệ thống Discord Bot đa năng, phát triển Website và đặc biệt là quản trị - lập trình chuyên sâu cho server Minecraft.<br><br>Mục tiêu của mình là luôn tạo ra những sản phẩm công nghệ tối ưu, sáng tạo và mang lại giá trị thực tế cao nhất cho người dùng và cộng đồng trò chơi." data-en="With a solid technical foundation in HTML, JavaScript, Java, and Python, I have years of experience building versatile Discord Bot systems, developing Websites, and especially specialized management - programming for Minecraft servers.<br><br>My goal is to always create optimized, creative technology products that bring the highest practical value to users and the gaming community.">
+                        Với nền tảng kỹ thuật vững chắc trên các ngôn ngữ HTML, JavaScript, Java và Python, mình đã có
+                        nhiều năm kinh nghiệm trong việc xây dựng các hệ thống Discord Bot đa năng, phát triển Website
+                        và đặc biệt là quản trị - lập trình chuyên sâu cho server Minecraft.
+                        <br><br>
+                        Mục tiêu của mình là luôn tạo ra những sản phẩm công nghệ tối ưu, sáng tạo và mang lại giá trị
+                        thực tế cao nhất cho người dùng và cộng đồng trò chơi.
+                    </p>
+                </div>
+
+                <div class="glass-card code-panel mt-2 fade-up">
+                    <div class="code-header">
+                        <div class="window-controls">
+                            <span class="ctrl close"></span>
+                            <span class="ctrl min"></span>
+                            <span class="ctrl max"></span>
+                        </div>
+                        <span class="filename">info.yml</span>
+                    </div>
+                    <pre><code><span class="token key">entity:</span> Sukidesu Arata
+<span class="token key">location:</span> <span data-vi="Việt Nam" data-en="Vietnam">Việt Nam</span>
+<span class="token key">gender:</span> <span data-vi="Nam" data-en="Male">Nam</span>
+<span class="token key">core_focus:</span>
+  <span class="token value">- Discord Bot Systems</span>
+  <span class="token value">- Minecraft Operations</span>
+  <span class="token value">- Web Development</span>
+<span class="token key">status:</span> <span class="token highlight">Ready for deployment_</span></code></pre>
+                </div>
+            </section>
+
+            <!-- Services / Expertise Section -->
+            <section id="services" class="section">
+                <div class="section-header fade-up">
+                    <span class="section-badge">02 // EXPERTISE</span>
+                    <h2 class="section-title" data-vi="Chuyên Môn" data-en="Expertise">Chuyên Môn</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card glass-card fade-up">
+                        <div class="service-icon"><i class="fab fa-discord"></i></div>
+                        <h3>Discord Bot</h3>
+                        <p data-vi="Thiết kế và vận hành hệ thống bot quản lý đa năng, lập trình custom bot và tích hợp API chuyên sâu." data-en="Design and operate versatile management bot systems, program custom bots, and integrate in-depth APIs.">Thiết kế và vận hành hệ thống bot quản lý đa năng, lập trình custom bot và tích hợp API
+                            chuyên sâu.</p>
+                    </div>
+
+                    <div class="service-card glass-card fade-up delay-1">
+                        <div class="service-icon"><i class="fas fa-cubes"></i></div>
+                        <h3>Minecraft Development</h3>
+                        <p data-vi="Phát triển hệ thống server, thiết kế logic trò chơi, cấu hình plugin và tối ưu hóa trải nghiệm người chơi." data-en="Develop server systems, design game logic, configure plugins, and optimize player experience.">Phát triển hệ thống server, thiết kế logic trò chơi, cấu hình plugin và tối ưu hóa trải
+                            nghiệm người chơi.</p>
+                    </div>
+
+                    <div class="service-card glass-card fade-up delay-2">
+                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Web Development</h3>
+                        <p data-vi="Xây dựng giao diện UI/UX mượt mà, lập trình front-end và hệ thống quản lý web cơ bản." data-en="Build smooth UI/UX interfaces, program front-end, and basic web management systems.">Xây dựng giao diện UI/UX mượt mà, lập trình front-end và hệ thống quản lý web cơ bản.</p>
+                    </div>
+
+                    <div class="service-card glass-card fade-up delay-3">
+                        <div class="service-icon"><i class="fas fa-robot"></i></div>
+                        <h3>Python Automation</h3>
+                        <p data-vi="Thiết lập tự động hóa luồng công việc, trích xuất dữ liệu và xây dựng các script xử lý tự động hiệu quả." data-en="Set up workflow automation, extract data, and build efficient automated processing scripts.">Thiết lập tự động hóa luồng công việc, trích xuất dữ liệu và xây dựng các script xử lý tự
+                            động hiệu quả.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <div class="section-header fade-up">
+                    <span class="section-badge">03 // CAPABILITIES</span>
+                    <h2 class="section-title" data-vi="Kỹ Năng / Công Nghệ" data-en="Skills / Technologies">Kỹ Năng / Công Nghệ</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Tech Stack Grid -->
+                    <div class="glass-card skill-box fade-up">
+                        <h3 class="skill-box-title" data-vi="<i class='fas fa-toolbox'></i> Bộ Công Cụ" data-en="<i class='fas fa-toolbox'></i> Tech Stack"><i class="fas fa-toolbox"></i> Bộ Công Cụ</h3>
+                        <div class="tech-icons">
+                            <div class="tech-item"><i class="fab fa-html5"></i><span>HTML</span></div>
+                            <div class="tech-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                            <div class="tech-item"><i class="fab fa-java"></i><span>Java</span></div>
+                            <div class="tech-item"><i class="fab fa-python"></i><span>Python</span></div>
+                            <div class="tech-item"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bars -->
+                    <div class="glass-card skill-box fade-up delay-1">
+                        <h3 class="skill-box-title" data-vi="<i class='fas fa-chart-bar'></i> Độ Thông Thạo" data-en="<i class='fas fa-chart-bar'></i> Masteries"><i class="fas fa-chart-bar"></i> Độ Thông Thạo</h3>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span data-vi="Quản trị Server Minecraft" data-en="Minecraft Server Administration">Quản trị Server Minecraft</span>
+                                <span class="pct">95%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-progress="95"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span data-vi="Logic & API Discord Bot" data-en="Discord Bot Logic & API">Logic & API Discord Bot</span>
+                                <span class="pct">90%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span data-vi="Phát triển Web" data-en="Web Development">Phát triển Web</span>
+                                <span class="pct">80%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span data-vi="Script Python & Tự động hóa" data-en="Python Scripts & Automation">Script Python & Tự động hóa</span>
+                                <span class="pct">85%</span>
+                            </div>
+                            <div class="skill-track">
+                                <div class="skill-fill" data-progress="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience / Network Section -->
+            <section id="experience" class="section">
+                <div class="section-header fade-up">
+                    <span class="section-badge">04 // NETWORK</span>
+                    <div class="header-with-action">
+                        <h2 class="section-title" data-vi="Dự Án Tham Gia" data-en="Project Network">Dự Án Tham Gia</h2>
+                        <button id="reload-pings" class="reload-btn" data-vi-title="Làm mới trạng thái" data-en-title="Reload Status" title="Làm mới trạng thái">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-list">
+                    <!-- Project Item -->
+                    <div class="project-item glass-card hover-glow fade-up">
+                        <div class="project-main-flex">
+                            <img src="./assets/toromc.webp" alt="Toromc Network Logo" class="project-logo"
+                                onerror="this.src='https://ui-avatars.com/api/?name=Toromc+Network&background=0A101C&color=10B981&size=64'">
+                            <div class="project-content">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">Toromc Network</h3>
+                                    <span class="role-badge">DEV</span>
+                                </div>
+                                <p class="project-desc mc-ping" data-ip="play.toromc.vn" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
+                                <div class="ip-copy-container" onclick="copyIP('play.toromc.vn', this)">
+                                    <span class="ip-text">play.toromc.vn</span>
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item glass-card hover-glow fade-up delay-1">
+                        <div class="project-main-flex">
+                            <img src="./assets/VNSMP.png" alt="VNSMP Logo" class="project-logo"
+                                onerror="this.src='https://ui-avatars.com/api/?name=VNSMP&background=0A101C&color=10B981&size=64'">
+                            <div class="project-content">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">VNSMP.com</h3>
+                                    <span class="role-badge">DEV</span>
+                                </div>
+                                <p class="project-desc mc-ping" data-ip="vnsmp.com" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
+                                <div class="ip-copy-container" onclick="copyIP('vnsmp.com', this)">
+                                    <span class="ip-text">vnsmp.com</span>
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item glass-card hover-glow fade-up delay-2">
+                        <div class="project-main-flex">
+                            <img src="./assets/lunernetwork.webp" alt="Luner Network Logo" class="project-logo"
+                                onerror="this.src='https://ui-avatars.com/api/?name=Luner+Network&background=0A101C&color=10B981&size=64'">
+                            <div class="project-content">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">Luner Network</h3>
+                                    <span class="role-badge">DEV</span>
+                                </div>
+                                <p class="project-desc mc-ping" data-ip="lunermc.online" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
+                                <div class="ip-copy-container" onclick="copyIP('lunermc.online', this)">
+                                    <span class="ip-text">lunermc.online</span>
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item glass-card hover-glow fade-up delay-3">
+                        <div class="project-main-flex">
+                            <img src="./assets/nightcore.webp" alt="Nightcore Network Logo" class="project-logo"
+                                onerror="this.src='https://ui-avatars.com/api/?name=Nightcore&background=0A101C&color=10B981&size=64'">
+                            <div class="project-content">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">Nightcore Network</h3>
+                                    <span class="role-badge">DEV</span>
+                                </div>
+                                <p class="project-desc mc-ping" data-ip="nightcoresmp.xyz" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
+                                <div class="ip-copy-container" onclick="copyIP('nightcoresmp.xyz', this)">
+                                    <span class="ip-text">nightcoresmp.xyz</span>
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item glass-card hover-glow fade-up">
+                        <div class="project-main-flex">
+                            <img src="./assets/wynnmc.webp" alt="WynnMC Logo" class="project-logo"
+                                onerror="this.src='https://ui-avatars.com/api/?name=WynnMC&background=0A101C&color=10B981&size=64'">
+                            <div class="project-content">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">WynnMC</h3>
+                                    <span class="role-badge warn">Admin</span>
+                                </div>
+                                <p class="project-desc mc-ping" data-ip="wynnmc.fun" data-vi="Đang tải máy chủ..." data-en="Loading server...">Đang tải máy chủ...</p>
+                                <div class="ip-copy-container" onclick="copyIP('wynnmc.fun', this)">
+                                    <span class="ip-text">wynnmc.fun</span>
+                                    <i class="fas fa-copy"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item -->
+                    <div class="project-item glass-card hover-glow fade-up delay-1">
+                        <div class="project-main-flex">
+                            <img src="./assets/minemumi.webp" alt="Minemumi Logo" class="project-logo"
+                                onerror="this.src='https://ui-avatars.com/api/?name=Minemumi&background=0A101C&color=10B981&size=64'">
+                            <div class="project-content">
+                                <div class="project-title-row">
+                                    <h3 class="project-title">Minemumi Community</h3>
+                                    <span class="role-badge alert">Leaker</span>
+                                </div>
+                                <p class="project-desc" data-vi="Cộng đồng Minecraft chia sẻ tài nguyên lớn mạnh" data-en="Thriving Minecraft community sharing resources">Cộng đồng Minecraft chia sẻ tài nguyên lớn mạnh</p>
+                                <a href="https://minemumi.sukimc.me" target="_blank"
+                                    class="ip-copy-container discord-link">
+                                    <span class="ip-text">minemumi.sukimc.me</span>
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Featured Projects Section -->
+            <section id="featured-projects" class="section">
+                <div class="section-header fade-up">
+                    <span class="section-badge">05 // PROJECTS</span>
+                    <h2 class="section-title" data-vi="Dự Án Nổi Bật" data-en="Featured Projects">Dự Án Nổi Bật</h2>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- 1. Portfolio Website -->
+                    <div class="project-card glass-card fade-up">
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <p class="project-description">
+                            A clean and modern personal portfolio website built using 
+                            <b>HTML, CSS, and JavaScript</b>. It showcases my projects, skills, 
+                            and contact information with a responsive layout and smooth animations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/stainmc2102/Portfolio" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+
+                    <!-- 2. Crates Plugin -->
+                    <div class="project-card glass-card fade-up delay-1">
+                        <h3 class="project-title">StainCrates - Plugin Crates for Minecraft Server</h3>
+                        <p class="project-description">
+                            A fully customizable Crates plugin designed for <b>Minecraft servers</b>.
+                            It supports unique rewards, animations, effects, keys, and flexible configuration — 
+                            delivering a smooth and engaging opening experience for players.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JAVA</span>
+                        </div>
+                        <a href="https://github.com/stainmc2102/Stain-Crates" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+
+                    <!-- 3. VieTranslator Discord Bot -->
+                    <div class="project-card glass-card fade-up delay-2">
+                        <h3 class="project-title">VieTranslator – Discord Config Bot</h3>
+                        <p class="project-description">
+                            A <b>Discord bot</b> built using <b>Node.js</b>, designed for managing multilingual 
+                            servers with auto translation, configuration commands, and real-time interaction.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Discord.js</span>
+                        </div>
+                        <a href="https://github.com/stainmc2102/VieTranslator-Discord-Bot" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fab fa-github"></i>
+                            <span>View on GitHub</span>
+                        </a>
+                    </div>
+
+                    <!-- 4. Minecraft Server -->
+                    <div class="project-card glass-card fade-up delay-3">
+                        <h3 class="project-title">COZYSKY COMMUNITY (STOPPED)</h3>
+                        <p class="project-description">
+                            A vibrant Minecraft community server offering a cozy, friendly environment with 
+                            custom features, balanced gameplay, and continuous updates — delivering a smooth 
+                            and engaging experience for every player.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Minecraft</span>
+                        </div>
+                        <a href="https://cozysky.chillverse.top" target="_blank" rel="noopener noreferrer" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Visit Server</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="main-footer fade-up delay-2">
+                <div class="footer-content glass-card">
+                    <div class="footer-brand">Sukidesu Arata // 2026</div>
+                    <div class="footer-msg" data-vi="Phát triển Minecraft/Discord." data-en="Minecraft/Discord Developer.">Phát triển Minecraft/Discord.</div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Background Music Audio Tag -->
+    <audio id="bg-music" loop autoplay>
+        <source src="./assets/Point The Star.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Music Toggle Button -->
+    <button id="music-toggle-btn" class="floating-music-btn" data-vi-title="Mở/Đóng Bảng Nhạc" data-en-title="Toggle Music Panel" title="Mở/Đóng Bảng Nhạc">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Music Panel (Now decoupled from the button) -->
+    <div class="music-content" id="music-content">
+        <div class="music-cover">
+            <i class="fas fa-compact-disc fa-spin"></i>
         </div>
-        <div id="toast" class="toast" data-vi="Đã Copy IP!" data-en="IP Copied!">Đã Copy IP!</div>
-        <script src="./script.js"></script>
-        <script>
-            document.addEventListener("contextmenu", function(e) {
-                e.preventDefault()
-            }),
-            document.onkeydown = function(e) {
-                return 123 != e.keyCode && ((!e.ctrlKey || !e.shiftKey || 73 != e.keyCode) && ((!e.ctrlKey || !e.shiftKey || 74 != e.keyCode) && ((!e.ctrlKey || !e.shiftKey || 67 != e.keyCode) && ((!e.ctrlKey || 85 != e.keyCode) && void 0))))
+        <div class="music-info">
+            <div class="music-title">Point The Star</div>
+            <div class="music-controls">
+                <button id="music-play-pause" class="ctrl-btn"><i class="fas fa-play"></i></button>
+                <div class="volume-slider-container">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating View Counter -->
+    <div class="floating-view-badge" data-vi-title="Lượt xem hồ sơ" data-en-title="Profile Views" title="Lượt xem hồ sơ">
+        <i class="fas fa-eye"></i>
+        <span id="view-count">...</span>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast" data-vi="Đã Copy IP!" data-en="IP Copied!">Đã Copy IP!</div>
+
+    <script src="./script.js"></script>
+
+    <!-- Anti Inspect -->
+    <script>
+        // Vô hiệu hóa chuột phải
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.onkeydown = function (e) {
+            // Chặn phím F12 (phím tắt huyền thoại để mở DevTools)
+            if (e.keyCode == 123) {
+                return false;
             }
-        </script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                initViewCounter()
-            })
-        </script>
-        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"a4014dcd2b1d4b42b9267bbd114d3b78","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-    </body>
+
+            // Chặn Ctrl+Shift+I: Một cách khác để mở bảng Inspect
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+                return false;
+            }
+
+            // Chặn Ctrl+Shift+J: Mở thẳng tab Console
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+                return false;
+            }
+
+            // Chặn Ctrl+Shift+C: Chế độ chọn phần tử để soi (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+                return false;
+            }
+
+            // Chặn Ctrl+U: Xem mã nguồn thô của trang (View Source)
+            if (e.ctrlKey && e.keyCode == 85) {
+                return false;
+            }
+        };
+    </script>
+
+    <!-- ==================== KHỞI TẠO VIEW COUNTER ==================== -->
+    <script>
+        // Gọi hàm counter ngay sau khi trang tải xong (đảm bảo element #view-count đã tồn tại)
+        document.addEventListener('DOMContentLoaded', function () {
+            initViewCounter();
+        });
+    </script>
+</body>
+
 </html>
